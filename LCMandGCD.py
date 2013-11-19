@@ -1,12 +1,6 @@
-#I/O
-#make a sieve big enough for the numbers 
-#find a way to get prime factorization and calculate LCM and GCD 
-
-#Begin I/O
 alpha=int(raw_input("pick a number and press enter "))
 beta=int(raw_input("pick another number and press enter ")) 
 #print alpha, beta #for testing purposes, might be added back later to verify correct numbers 
-#eratosthenes
 end= max(alpha+1, beta+1) #because the index starts at zero it will end at alpha/beta not one number higher 
 bucket = [];
 primes = []; 
@@ -25,10 +19,8 @@ bucket[1]=1 #this line tells the sieve that 1 is not a prime
 for i in range(0,len(bucket)):  #this for loop puts the prime numbers in bucket into the array named primes
 	if bucket[i]==0: 
 		primes.append(i); 
-	i=i+1 #this line shouldn't be necessary 
-print primes #this is for testing if you actually created an array of just prime numbers 
-#Begin prime factorization and simultaneously solving for lcm and gcd 
-#options: send both numbers through at the same time 
+	i=i+1  
+#print primes #this is for testing if you actually created an array of just prime numbers 
 def primeindex(gamma, kappa):
 	GCD=1
 	LCM=1
@@ -42,7 +34,7 @@ def primeindex(gamma, kappa):
 			#print "alpha divided by ", primes[i], "is ", gamma, "beta divided by ", primes[i], "is ", kappa, "and the greatest common divisor is ", GCD
 		elif gamma%primes[i]==0 and kappa%primes[i]!=0: 
 			gamma=gamma/primes[i] 
-			LCM=LCM*primes[i] #I FIGURED IT OUT!!!!!! ITS NOT ADDING UP PRIMES THAT WERE CAUGHT BY THE GCD TEST!!!
+			LCM=LCM*primes[i] 
 			#print "alpha divided by ", primes[i], "is ", gamma, "beta divided by ", primes[i], "is ", kappa, "and the least common multiple is ", LCM 
 		elif gamma%primes[i]!=0 and kappa%primes[i]==0: 	
 			kappa=kappa/primes[i]
