@@ -6,13 +6,13 @@ bucket= ""
 fsleft=0 
 for i in string: 
 	if i=='r': 
-		bucket=bucket + str(fsleft) #for bucket is a string 
+		bucket=bucket + str(fsleft)  
 	if i=='f': 
-		fsleft=fsleft+1 #you don't need a placeholder in the bucket string, because f isn't added in until after r and l are resolved 
+		fsleft=fsleft+1  
 string=string.replace('f','')
 string=list(string)
 for i in range(0,len(bucket)): 
-	if int(bucket[i])%2==1: #so much pseudo code 
+	if int(bucket[i])%2==1:  
 		if string[i]=='r':
 			string[i]='l' 
 		else: 
@@ -21,7 +21,7 @@ string=''.join(string)
 rcount=(string.count('r')-string.count('l'))%n
 if rcount>=0: 
 	string='r'*rcount 
-string=string+('f'*(fsleft%2))  #super pseudo code, probably wont work 
+string=string+('f'*(fsleft%2))  
 if string == '': 
 	string='e'
 print "That sequence of group operations produces the same result as %s" % string
